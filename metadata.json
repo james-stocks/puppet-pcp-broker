@@ -1,0 +1,37 @@
+{
+  "name": "jstocks-pcp_broker",
+  "version": "0.1.0",
+  "author": "jstocks",
+  "summary": "Git clone pcp-broker and run it in trapperkeeper",
+  "license": "Apache-2.0",
+  "source": "https://github.com/james-stocks/puppet-pcp-broker",
+  "project_page": "https://github.com/james-stocks/puppet-pcp-broker",
+  "issues_url": "https://github.com/james-stocks/puppet-pcp-broker/issues",
+  "dependencies": [{
+    "name": "puppetlabs-stdlib",
+    "version_requirement": ">= 1.0.0"
+  }],
+  "operatingsystem_support": [{
+    "operatingsystem": "Fedora",
+    "operatingsystemrelease": [
+      "20",
+      "21",
+      "22"
+    ]
+  }, {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [
+      "16.04"
+    ]
+  }, {
+    "operatingsystem": "Debian",
+    "operatingsystemrelease": [
+      "8"
+    ]
+  }, {
+    "operatingsystem": "CentOS",
+    "operatingsystemrelease": [
+      "7"
+    ]
+  }]
+}
