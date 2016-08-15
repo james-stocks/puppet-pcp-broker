@@ -24,19 +24,4 @@ describe 'pcp_broker' do
       end
     end
   end
-
-  context 'unsupported operating system' do
-    describe 'pcp_broker class without any parameters on Solaris/Nexenta' do
-      let(:facts) do
-        {
-          :osfamily        => 'Solaris',
-          :operatingsystem => 'Nexenta',
-        }
-      end
-
-      context 'shows failure' do
-        it { expect { is_expected.to create_class('pcp_broker') }.to raise_error(Puppet::Error, /Solaris not supported/) }
-      end
-    end
-  end
 end

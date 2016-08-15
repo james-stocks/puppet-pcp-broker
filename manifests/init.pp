@@ -1,47 +1,32 @@
-# pcp_broker - Used for managing installation and configuration
-# of pcp_broker (http://pcp_broker.org/)
+# pcp_broker - Used for fetching pcp-broker (https://github.com/puppetlabs/pcp-broker)
+# and running it with trapperkeeper
 #
 # @example
 #   include pcp_broker
 #
-# @example
-#   class { 'pcp_broker':
-#     manage_repo    => false,
-#     package_name   => 'pcp_broker-custombuild',
-#   }
+# @author James Stocks
 #
-# @author Peter Souter
+# @param git_url [String] URL to the pcp-broker repo
 #
-# @param manage_package [Boolean] Whether to manage the pcp_broker package
+# @param git_clone_folder [String] the local folder to clone the pcp-broker repo to
 #
-# @param manage_repo [Boolean] Whether to manage the package repositroy
+# @param port [String] Port number that pcp-broker should use for PCP messaging
+#                      (needs to be unique if running multiple instances on one host)
 #
-# @param package_name [String] Name of the pcp_broker package
-#
-# @param package_version [String] Version of the pcp_broker package to install
-#
-# @param service_ensure [String] What status the service should be enforced to
-#
-# @param service_name [String] Name of the pcp_broker service to manage
+# @param nrepl_port [String] Port number for pcp-broker's nrepl instance
+#                            (needs to be unique if running multiple instances on one host)
 #
 class pcp_broker (
-  $manage_package   = $::pcp_broker::params::manage_package,
-  $manage_repo      = $::pcp_broker::params::manage_repo,
-  $maxstartups      = $::pcp_broker::params::maxstartups,
-  $package_name     = $::pcp_broker::params::package_name,
-  $package_version  = $::pcp_broker::params::package_version,
+  $git_url          = $::pcp_broker::params::git_url,
+  $git_clone_folder = $::pcp_broker::params::git_clone_folder,
   $port             = $::pcp_broker::params::port,
-  $service_ensure   = $::pcp_broker::params::service_ensure,
-  $service_name     = $::pcp_broker::params::service_name,
+  $nrepl_port       = $::pcp_broker::params::nrepl_port,
 ) inherits ::pcp_broker::params {
 
-  validate_bool($manage_package)
-  validate_bool($manage_repo)
-
-  validate_string($package_name)
-  validate_string($package_version)
-  validate_string($service_ensure)
-  validate_string($service_name)
+  validate_string($git_url)
+  validate_string($git_clone_folder)
+  validate_string($port)
+  validate_string($nrepl_port)
 
   class { '::pcp_broker::install': } ->
   class { '::pcp_broker::config': } ~>
