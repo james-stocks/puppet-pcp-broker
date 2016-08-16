@@ -14,12 +14,10 @@ describe 'pcp_broker' do
           it { is_expected.to create_class('pcp_broker') }
 
           it { is_expected.to contain_class('pcp_broker::params') }
-          it { is_expected.to contain_class('pcp_broker::install').that_comes_before('Class[pcp_broker::config]') }
-          it { is_expected.to contain_class('pcp_broker::config') }
-          it { is_expected.to contain_class('pcp_broker::service').that_subscribes_to('Class[pcp_broker::config]') }
+          it { is_expected.to contain_class('pcp_broker::clone').that_comes_before('Class[pcp_broker::config]') }
+          it { is_expected.to contain_class('pcp_broker::config').that_comes_before('Class[pcp_broker::trapperkeeper]') }
+          it { is_expected.to contain_class('pcp_broker::trapperkeeper') }
 
-          it { is_expected.to contain_service('pcp_broker') }
-          it { is_expected.to contain_package('pcp_broker').with_ensure('installed') }
         end
       end
     end

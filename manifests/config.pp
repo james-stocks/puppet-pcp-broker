@@ -3,7 +3,7 @@
 # This class is called from pcp_broker for service config.
 #
 class pcp_broker::config {
-  
+
   hocon_setting { 'nrepl port':
     ensure  => present,
     path    => "${::pcp_broker::git_clone_dir}/pcp-broker/test-resources/conf.d/nrepl.conf",
@@ -18,7 +18,7 @@ class pcp_broker::config {
     setting => 'webserver.pcp-broker.ssl-port',
     value   => $::pcp_broker::port,
     type    => 'number',
-  }  
+  }
 
   hocon_setting { 'broker ssl cert':
     ensure  => present,

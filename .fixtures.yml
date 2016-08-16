@@ -1,7 +1,12 @@
 fixtures:
   repositories:
-    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
-    vcsrpo: "https://github.com/puppetlabs/puppetlabs-vcsrepo.git"
-    hocon:  "https://github.com/puppetlabs/puppetlabs-hocon.git"
+    stdlib:    "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+    vcsrpo:    "https://github.com/puppetlabs/puppetlabs-vcsrepo.git"
+    hocon:     "https://github.com/puppetlabs/puppetlabs-hocon.git"
+    leiningen: "https://github.com/james-stocks/puppet-leiningen.git"
+    wget:
+      repo: "https://github.com/maestrodev/puppet-wget"
+      ref: 'v1.7.3'
+    
   symlinks:
     pcp_broker: "#{source_dir}"
