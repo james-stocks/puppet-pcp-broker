@@ -28,6 +28,9 @@
 #
 # @param ssl_crl_path [String] path to the broker's CRL file. Allows running with your own SSL files.
 #
+# @param run_broker [boolean] Whether Puppet should ensure this instance of the broker is running.
+#                             Set to false to just configure the broker without starting it.
+#
 class pcp_broker (
   $git_url          = $::pcp_broker::params::git_url,
   $git_clone_dir    = $::pcp_broker::params::git_clone_dir,
@@ -39,6 +42,7 @@ class pcp_broker (
   $ssl_key          = $::pcp_broker::params::ssl_key,
   $ssl_ca_cert      = $::pcp_broker::params::ssl_ca_cert,
   $ssl_crl_path     = $::pcp_broker::params::ssl_crl_path,
+  $run_broker       = $::pcp_broker::params::run_broker,
 ) inherits ::pcp_broker::params {
 
   validate_string($git_url)
@@ -51,6 +55,7 @@ class pcp_broker (
   validate_string($ssl_key)
   validate_string($ssl_ca_cert)
   validate_string($ssl_crl_path)
+  validate_bool($run_broker)
 
   class { '::pcp_broker::clone': } ->
   class { '::leiningen': } ->

@@ -14,4 +14,5 @@ class pcp_broker::params {
   $ssl_key          = './test-resources/ssl/private_keys/broker.example.com.pem'
   $ssl_ca_cert      = './test-resources/ssl/ca/ca_crt.pem'
   $ssl_crl_path     = './test-resources/ssl/ca/ca_crl.pem'
+  $run_broker       = true
 }
