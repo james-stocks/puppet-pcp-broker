@@ -2,5 +2,6 @@ fixtures:
   repositories:
     stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
     vcsrpo: "https://github.com/puppetlabs/puppetlabs-vcsrepo.git"
+    hocon:  "https://github.com/puppetlabs/puppetlabs-hocon.git"
   symlinks:
     pcp_broker: "#{source_dir}"
