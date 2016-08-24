@@ -1,6 +1,6 @@
 {
   "name": "jstocks-pcp_broker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "jstocks",
   "summary": "Git clone pcp-broker and run it in trapperkeeper",
   "license": "Apache-2.0",
